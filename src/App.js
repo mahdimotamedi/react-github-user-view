@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 function App({ theme }) {
   return (
-    <div className={theme}>
+    <div className={`app-main ${theme}`}>
       <GithubUser />
     </div>
   );
