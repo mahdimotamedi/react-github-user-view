@@ -4,12 +4,13 @@ import {
   REQUEST_GITHUB_INFO
 } from "../configs/config.actions";
 import configTheme from "../configs/config.theme";
+import ServiceStorage from "../services/service.storage";
 
 function appReducer(
   state = {
     isFetching: false,
     userNotFound: false,
-    theme: configTheme.LIGHT,
+    theme: ServiceStorage.getTheme(),
     userInfo: {},
     userRepos: []
   },
@@ -17,12 +18,15 @@ function appReducer(
 ) {
   switch (action.type) {
     case TOGGLE_THEME:
+      let appTheme =
+        state.theme === configTheme.LIGHT
+          ? configTheme.DARK
+          : configTheme.LIGHT;
+
+      ServiceStorage.setTheme(appTheme);
       return {
         ...state,
-        theme:
-          state.theme === configTheme.LIGHT
-            ? configTheme.DARK
-            : configTheme.LIGHT
+        theme: appTheme
       };
 
     case REQUEST_GITHUB_INFO:
