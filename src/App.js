@@ -1,8 +1,17 @@
 import React from "react";
 import GithubUser from "./ui/views/GithubUser/GithubUser";
+import { connect } from "react-redux";
 
-function App() {
-  return <GithubUser />;
+function App({ theme }) {
+  return (
+    <div className={theme}>
+      <GithubUser />
+    </div>
+  );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  theme: state.theme
+});
+
+export default connect(mapStateToProps)(App);
