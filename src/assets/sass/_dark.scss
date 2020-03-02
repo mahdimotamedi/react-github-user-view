@@ -1,0 +1,33 @@
+.app-main.dark {
+  background-color: #212121;
+  color: #fff;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  label {
+    color: #ffffff;
+  }
+
+  .toggle-theme-button-img {
+    filter: invert(100%) sepia(94%) saturate(0%) hue-rotate(291deg)
+      brightness(108%) contrast(106%);
+  }
+
+  .get-username-part {
+    input {
+      background-color: #292929;
+    }
+
+    .search-button {
+      background-color: #292929;
+
+      &-img {
+        filter: invert(40%) sepia(2%) saturate(0%) hue-rotate(9deg)
+          brightness(95%) contrast(92%);
+      }
+    }
+  }
+}
