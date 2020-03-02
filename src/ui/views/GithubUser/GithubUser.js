@@ -2,14 +2,15 @@ import React from "react";
 import GithubUserHeader from "./Partials/GithubUserHeader";
 import GithubUserSearch from "./Partials/GithubUserSearch";
 import GithubUserInfo from "./Partials/GithubUserInfo";
+import CpContainer from "../../components/container/cp.container";
 
 function GithubUser() {
   return (
-    <div className="container">
+    <CpContainer>
       <GithubUserHeader />
       <GithubUserSearch />
       <GithubUserInfo />
-    </div>
+    </CpContainer>
   );
 }
 
