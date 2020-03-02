@@ -31,8 +31,6 @@ function receivePosts(userInfo, userRepos) {
 }
 
 function fetchUser(username) {
-  if (username[0] === "@") username = username.substring(1);
-
   return async dispatch => {
     dispatch(requestUser());
     try {
@@ -53,6 +51,8 @@ function shouldFetchUser(state, username) {
 }
 
 export function fetchUserIfNeeded(username) {
+  if (username[0] === "@") username = username.substring(1);
+
   return (dispatch, getState) => {
     if (shouldFetchUser(getState(), username)) {
       return dispatch(fetchUser(username));
