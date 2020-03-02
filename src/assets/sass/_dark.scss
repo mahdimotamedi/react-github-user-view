@@ -19,6 +19,7 @@
   .get-username-part {
     input {
       background-color: #292929;
+      color: #fff;
     }
 
     .search-button {
@@ -28,6 +29,54 @@
         filter: invert(40%) sepia(2%) saturate(0%) hue-rotate(9deg)
           brightness(95%) contrast(92%);
       }
+
+      &-has-value {
+        background-color: #ffffff;
+
+        .search-button-img {
+          filter: invert(18%) sepia(2%) saturate(19%) hue-rotate(30deg)
+            brightness(94%) contrast(102%);
+        }
+      }
+    }
+  }
+
+  .github-user {
+    .user-info-detail {
+      color: #656565;
+    }
+
+    a {
+      color: #00a7ff;
+    }
+
+    strong {
+      color: #fff;
+    }
+
+    .user-repo-single-container {
+      background-color: #292929;
+
+      img {
+        filter: invert(38%) sepia(5%) saturate(10%) hue-rotate(14deg)
+          brightness(99%) contrast(86%);
+      }
+
+      h4 {
+        color: #00a7ff;
+      }
+
+      p {
+        color: #fff;
+      }
+
+      span {
+        color: #fff;
+      }
+    }
+
+    .placeholder-box {
+      background-color: #292929;
     }
   }
 }
