@@ -1,7 +1,8 @@
 import React from "react";
+import GithubUser from "./ui/views/GithubUser/GithubUser";
 
 function App() {
-  return <div className="fjd">Hello World</div>;
+  return <GithubUser />;
 }
 
 export default App;
