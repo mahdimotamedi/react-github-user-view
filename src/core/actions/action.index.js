@@ -22,7 +22,7 @@ function userNotFound() {
   };
 }
 
-function receivePosts(userInfo, userRepos) {
+function receiveUser(userInfo, userRepos) {
   return {
     type: RECEIVE_GITHUB_INFO,
     userInfo: userInfo.data,
@@ -37,7 +37,7 @@ function fetchUser(username) {
       const userInfo = await ApiUser.getInfo(username);
       const userRepos = await ApiUser.getRepos(username);
 
-      dispatch(receivePosts(userInfo, userRepos));
+      dispatch(receiveUser(userInfo, userRepos));
     } catch (e) {
       dispatch(userNotFound());
     }
