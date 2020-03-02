@@ -1,0 +1,23 @@
+.main-header {
+  padding-top: 30px;
+
+  h1 {
+    font-weight: 800;
+    font-size: 28px;
+    display: inline-block;
+    color: #212121;
+  }
+
+  .toggle-theme-button {
+    float: right;
+    cursor: pointer;
+
+    &-img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      filter: invert(13%) sepia(24%) saturate(14%) hue-rotate(334deg)
+        brightness(95%) contrast(101%);
+    }
+  }
+}
