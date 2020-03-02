@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import searchIcon from "../../../../assets/Images/search-outline.svg";
+import loaderIcon from "../../../../assets/Images/loader-outline.svg";
+import { connect } from "react-redux";
+import { fetchUserIfNeeded } from "../../../../core/actions/action.index";
 
-function GithubUserSearch() {
-  const [hasError, setHasError] = useState(false);
-  const [inputHasValue, setInputHasValue] = useState(false);
+function GithubUserSearch({ userNotFound, isFetching, dispatch }) {
+  const [username, setUsername] = useState("");
 
   const onInputUserChange = val => {
-    setInputHasValue(!!val);
+    setUsername(val);
+  };
+
+  const onSearch = () => {
+    if (!username) return;
+
+    dispatch(fetchUserIfNeeded(username));
   };
 
   return (
@@ -20,19 +28,34 @@ function GithubUserSearch() {
         id="github-username"
         type="text"
         placeholder="@username"
+        value={username}
         onChange={e => onInputUserChange(e.target.value)}
+        onKeyDown={e => {
+          if (e.key === "Enter") {
+            onSearch();
+          }
+        }}
       />
       <button
         className={`search-button ${
-          inputHasValue ? "search-button-has-value" : ""
+          !!username ? "search-button-has-value" : ""
         }`}
+        onClick={() => onSearch()}
       >
-        <img src={searchIcon} className="search-button-img" />
+        <img
+          src={isFetching ? loaderIcon : searchIcon}
+          className="search-button-img"
+        />
       </button>
 
-      {hasError ? <p className="form-error">User not found :(</p> : null}
+      {userNotFound ? <p className="form-error">User not found :(</p> : null}
     </div>
   );
 }
 
-export default GithubUserSearch;
+const mapStateToProps = state => ({
+  userNotFound: state.userNotFound,
+  isFetching: state.isFetching
+});
+
+export default connect(mapStateToProps)(GithubUserSearch);
