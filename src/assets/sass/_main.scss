@@ -1,0 +1,75 @@
+@import "vars";
+
+.container {
+  width: 1000px;
+  margin: auto;
+}
+
+.main-header {
+  padding-top: 30px;
+
+  h1 {
+    font-weight: 800;
+    font-size: 28px;
+    display: inline-block;
+    color: #212121;
+  }
+
+  .toggle-theme-button {
+    float: right;
+    cursor: pointer;
+
+    &-img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.get-username-part {
+  padding-top: 70px;
+
+  h3 {
+    color: #212121;
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 50px;
+  }
+
+  label {
+    color: #212121;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input {
+    background-color: #fafafa;
+    padding-right: 12px;
+    padding-left: 12px;
+    width: 263px;
+    height: 51px;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+
+  .search-button {
+    width: 51px;
+    height: 51px;
+    border-radius: 8px;
+    background-color: #fafafa;
+    border: none;
+    vertical-align: middle;
+    margin-left: -5px;
+
+    &-img {
+      width: 18px;
+      height: 18px;
+      color: #a8a8a8;
+    }
+  }
+}
