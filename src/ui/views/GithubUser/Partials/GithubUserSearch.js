@@ -3,6 +3,7 @@ import searchIcon from "../../../../assets/Images/search-outline.svg";
 import loaderIcon from "../../../../assets/Images/loader-outline.svg";
 import { connect } from "react-redux";
 import { fetchUserIfNeeded } from "../../../../core/actions/action.index";
+import CpErrorForm from "../../../components/error/cp.error.form";
 
 function GithubUserSearch({ userNotFound, isFetching, dispatch }) {
   const [username, setUsername] = useState("");
@@ -23,6 +24,7 @@ function GithubUserSearch({ userNotFound, isFetching, dispatch }) {
         Enter a GitHub username, <br />
         to see the magic.
       </h3>
+
       <label htmlFor="github-username">GitHub username:</label>
       <input
         id="github-username"
@@ -36,6 +38,7 @@ function GithubUserSearch({ userNotFound, isFetching, dispatch }) {
           }
         }}
       />
+
       <button
         className={`search-button ${
           !!username ? "search-button-has-value" : ""
@@ -48,7 +51,7 @@ function GithubUserSearch({ userNotFound, isFetching, dispatch }) {
         />
       </button>
 
-      {userNotFound ? <p className="form-error">User not found :(</p> : null}
+      {userNotFound ? <CpErrorForm>User not found :(</CpErrorForm> : null}
     </div>
   );
 }
