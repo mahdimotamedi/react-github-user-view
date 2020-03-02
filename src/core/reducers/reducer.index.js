@@ -1,7 +1,8 @@
 import {
   TOGGLE_THEME,
   RECEIVE_GITHUB_INFO,
-  REQUEST_GITHUB_INFO
+  REQUEST_GITHUB_INFO,
+  USER_NOT_FOUND
 } from "../configs/config.actions";
 import configTheme from "../configs/config.theme";
 import ServiceStorage from "../services/service.storage";
@@ -32,7 +33,10 @@ function appReducer(
     case REQUEST_GITHUB_INFO:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
+        userNotFound: false,
+        userInfo: {},
+        userRepos: []
       };
 
     case RECEIVE_GITHUB_INFO:
@@ -41,6 +45,13 @@ function appReducer(
         isFetching: false,
         userInfo: action.userInfo,
         userRepos: action.userRepos
+      };
+
+    case USER_NOT_FOUND:
+      return {
+        ...state,
+        isFetching: false,
+        userNotFound: true
       };
 
     default:
